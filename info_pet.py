@@ -27,11 +27,23 @@ def coletar_informacoes_pet():
         except ValueError:
             print("Por favor, insira um número válido para o peso.")
 
+    # Coleta da altura do pet, garantindo que seja um número flutuante
+    while True:
+        try:
+            altura = float(input("Altura do pet (em cm): "))
+            if altura < 0:
+                print("A altura não pode ser negativa. Tente novamente.")
+            else:
+                break
+        except ValueError:
+            print("Por favor, insira um número válido para a altura.")
+
     # Exibindo as informações coletadas
     print("\nInformações do pet:")
     print(f"Nome: {nome}")
     print(f"Idade: {idade} anos")
     print(f"Peso: {peso} kg")
+    print(f"Altura: {altura} cm")
 
 # Chama a função para coletar e exibir as informações do pet
 coletar_informacoes_pet()
