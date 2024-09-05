@@ -81,4 +81,12 @@ def coletar_informacoes_pet():
     salvar_informacoes_do_animal(nome, idade, peso, altura, imc)
 
 # Chama a função para coletar e exibir as informações do pet
-coletar_informacoes_pet()
+def main():
+    while True:
+        coletar_informacoes_pet()
+        resposta = input("\nDeseja continuar? (s/n): ")
+        if resposta.lower() != "s":
+            break
+
+if __name__ == "__main__":
+    main()
