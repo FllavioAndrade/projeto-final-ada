@@ -1,3 +1,10 @@
+
+
+def calcular_imc_do_animal(peso, altura):
+    
+    imc = peso / (altura ** 2)
+    return imc
+
 # Função para coletar informações sobre o pet
 def coletar_informacoes_pet():
     print("Por favor, insira as informações sobre seu pet.")
@@ -38,12 +45,17 @@ def coletar_informacoes_pet():
         except ValueError:
             print("Por favor, insira um número válido para a altura.")
 
+    # Calcula o IMC do pet  
+    imc = calcular_imc_do_animal(peso, altura)
+    
+
     # Exibindo as informações coletadas
     print("\nInformações do pet:")
     print(f"Nome: {nome}")
     print(f"Idade: {idade} anos")
     print(f"Peso: {peso} kg")
     print(f"Altura: {altura} cm")
+    print(f"IMC do pet: {imc:.2f}")
 
 # Chama a função para coletar e exibir as informações do pet
 coletar_informacoes_pet()
