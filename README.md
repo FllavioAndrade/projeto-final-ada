@@ -4,9 +4,9 @@
 
 ## Descrição
 
-Essa aplicação é um sistema de coleta de informações de pets, que permite aos usuários inserir dados sobre seus pets, incluindo nome, idade, peso e altura. A aplicação calcula o IMC (índice de Massa Corporal) do pet com base nos dados inseridos e exibe as informações coletadas.
+Essa aplicação é um sistema de coleta de informações de pets, que permite aos usuários inserir dados sobre seus pets, incluindo nome, idade, peso e altura. A aplicação calcula o IMC (índice de Massa Corporal) do pet com base nos dados inseridos e exibe as informações coletadas, bem como armazenas essas informações em um banco de dados.
 
-OBS: O projeto final você encontra em [projeto-final-ada](https://github.com/ThayseAda/projeto-final-ada).
+OBS: A referência para o projeto você encontra em [projeto-final-ada](https://github.com/ThayseAda/projeto-final-ada).
 
 ## Funcionalidades
 
@@ -17,7 +17,7 @@ OBS: O projeto final você encontra em [projeto-final-ada](https://github.com/Th
 
 ## Requisitos
 
-- Python 3.x
+- Python 3.10 ou superior
 
 ## Instalação
 
@@ -47,13 +47,12 @@ OBS: O projeto final você encontra em [projeto-final-ada](https://github.com/Th
 Contribuições são bem-vindas! Se você tiver alguma sugestão ou correção, por favor, abra uma issue ou envie um pull request. <p>
 [Cliqui aqui para saber como contribuir](/Contributing/CONTRIBUTING.md)
 
-
 ## Licença
 
 Essa aplicação é licenciada sob a licença MIT. Veja o arquivo [LICENSE](https://opensource.org/license/mit) para mais informações.
 
 ## Autores
-[Thayse Frankenberger](https://www.linkedin.com/in/thayse-frankenberger-9832161b7/)
+[Flavio de Andrade Silva](https://www.linkedin.com/in/flavio-de-andrade/)
 <br>
 
-[Flavio de Andrade Silva](https://www.linkedin.com/in/flavio-de-andrade/)
+[Thayse Frankenberger](https://www.linkedin.com/in/thayse-frankenberger-9832161b7/)
