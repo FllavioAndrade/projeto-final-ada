@@ -50,7 +50,8 @@ Contribuições são bem-vindas! Se você tiver alguma sugestão ou correção, 
 
 Essa aplicação é licenciada sob a licença MIT. Veja o arquivo [LICENSE](https://opensource.org/license/mit) para mais informações.
 
-## Autor
+## Autores
 [Thayse Frankenberger](https://www.linkedin.com/in/thayse-frankenberger-9832161b7/)
 <br>
-Flavio de Andrade Silva
+
+[Flavio de Andrade Silva](https://www.linkedin.com/in/flavio-de-andrade/)

@@ -35,3 +35,4 @@ def coletar_informacoes_pet():
 
 # Chama a função para coletar e exibir as informações do pet
 coletar_informacoes_pet()
+
