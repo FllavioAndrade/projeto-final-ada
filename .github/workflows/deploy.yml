@@ -11,6 +11,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Fetch all branches
+      run: git fetch --all
+      
+    - name: Checkout developer branch
+      run: git checkout --track origin/developer
 
     - name: Merge to developer
       run: |
