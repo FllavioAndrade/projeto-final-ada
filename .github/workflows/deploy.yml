@@ -1,14 +1,30 @@
-name: Deploy API to EC2
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
-      - main
+      - feature/melhorias
 
 jobs:
-  build:
+  merge-to-developer:
     runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
+    - name: Merge to developer
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git checkout developer
+        git merge feature/melhorias
+        git push origin developer
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  test-developer:
+    needs: merge-to-developer
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -33,10 +49,58 @@ jobs:
         pip install pytest
         pytest
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
+    - name: Merge to homolog
+      if: success()
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git checkout homolog
+        git merge developer
+        git push origin homolog
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  test-homolog:
+    needs: test-developer
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run security tests
+      run: |
+        pip install bandit
+        bandit -r .
+
+    - name: Run code tests
+      run: |
+        pip install pytest
+        pytest
+
+    - name: Merge to main
+      if: success()
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git checkout main
+        git merge homolog
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    needs: test-homolog
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
