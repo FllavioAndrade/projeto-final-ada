@@ -26,7 +26,7 @@ jobs:
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
         git checkout developer
-        git merge feature/melhorias
+        git merge feature/melhoria
         git push origin developer
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
