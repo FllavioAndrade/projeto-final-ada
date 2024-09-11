@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template_string
 
 app = Flask(__name__)
-##
+###
 # Função para salvar as informações do pet em um arquivo de texto
 def salvar_informacoes_do_animal(nome, idade, peso, altura, imc):
     with open("informacoes_do_animal.txt", "a") as arquivo:
